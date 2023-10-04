@@ -3,7 +3,7 @@ import Header from "./Header";
 
 const Root = () => {
   return (
-    <div className="font-poppins">
+    <div className="font-poppins px-4 lg:px-0">
       <Header></Header>
       <Outlet></Outlet>
     </div>

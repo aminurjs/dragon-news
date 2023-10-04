@@ -4,7 +4,6 @@ import { BsFillEyeFill } from "react-icons/bs";
 
 const News = ({ news }) => {
   const { _id, title, author, image_url, details, rating, total_view } = news;
-  console.log(news);
   return (
     <div className="mb-8  border border-gray-200 rounded-md">
       <div className="flex justify-between p-4 bg-dark-7 rounded-t-md">
@@ -56,7 +55,6 @@ const News = ({ news }) => {
               type="radio"
               name="rating-7"
               className="mask mask-star-2 bg-orange-400"
-              checked
             />
             <input
               type="radio"
@@ -73,7 +71,9 @@ const News = ({ news }) => {
               name="rating-7"
               className="mask mask-star-2 bg-orange-400"
             />
-            <span className="ml-2">{rating.number}</span>
+            <span className="ml-2 font-medium text-dark-3">
+              {rating.number}
+            </span>
           </div>
           <div className="flex gap-2 items-center">
             <BsFillEyeFill></BsFillEyeFill>

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "001",
+    "image": "https://i.ibb.co/rcTQdTq/1.png",
+    "category": "Sports",
+    "title": "Grand Slam Champion Admits Using Magic Tennis Balls in Historic Win",
+    "date": "2023-09-27"
+  },
+  {
+    "id": "002",
+    "image": "https://i.ibb.co/tZSzTyd/2.png",
+    "category": "Sports",
+    "title": "Soccer Star Reveals New Flying Boots Responsible for Stunning Goals",
+    "date": "2023-09-15"
+  },
+  {
+    "id": "003",
+    "image": "https://i.ibb.co/Kj6H4Dp/3.png",
+    "category": "Sports",
+    "title": "NBA Announces Hovering Hoops for Next Season to Increase Difficulty",
+    "date": "2023-10-01"
+  }
+]
