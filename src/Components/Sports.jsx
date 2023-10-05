@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import { BsFillCalendar2EventFill } from "react-icons/bs";
 
 const Sports = ({ sport }) => {
-  console.log("sports", sport);
   return (
     <div className="mb-6">
       <img src={sport.image} alt="" />

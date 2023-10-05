@@ -3,25 +3,17 @@ import Category from "../Components/Category";
 import News from "../Components/News";
 import Sports from "../Components/Sports";
 import Aside from "../Components/Aside";
+import { useLoaderData } from "react-router-dom";
 
 const Home = () => {
   const [categories, setCategories] = useState([]);
-  const [news, setNews] = useState([]);
   const [sports, setSports] = useState([]);
+  const news = useLoaderData();
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch("categories.json");
       const data = await res.json();
       setCategories(data);
-    };
-
-    fetchData();
-  }, []);
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch("news.json");
-      const data = await res.json();
-      setNews(data);
     };
 
     fetchData();
@@ -35,7 +27,6 @@ const Home = () => {
 
     fetchData();
   }, []);
-
   return (
     <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
       <div>

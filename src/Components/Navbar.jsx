@@ -1,6 +1,17 @@
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "./AuthProvider";
+import { CgProfile } from "react-icons/cg";
+import toast, { Toaster } from "react-hot-toast";
 
 const Navbar = () => {
+  const { user, profile, setProfile, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut().then(() => toast.success("Logged-out successful."));
+    setProfile(false);
+  };
+
   const menus = [
     {
       id: "001",
@@ -20,7 +31,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="navbar bg-base-100 mt-5 mb-16">
+    <div className="navbar pt-5 pb-16">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -64,7 +75,44 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        <div>
+          <Toaster
+            toastOptions={{
+              success: {
+                style: {
+                  background: "green",
+                  color: "white",
+                },
+              },
+              error: {
+                style: {
+                  background: "red",
+                  color: "white",
+                },
+              },
+            }}
+          />
+        </div>
+        {user ? (
+          <div className="relative">
+            <button onClick={() => setProfile(!profile)} className="btn">
+              <CgProfile className="text-2xl"></CgProfile>
+            </button>
+            <div
+              className={`${
+                profile ? "" : "invisible"
+              } absolute w-24 right-0 top-full mt-2`}
+            >
+              <button onClick={handleLogOut} className="btn">
+                Log out
+              </button>
+            </div>
+          </div>
+        ) : (
+          <Link to={"/login"} className="btn">
+            Login
+          </Link>
+        )}
       </div>
     </div>
   );

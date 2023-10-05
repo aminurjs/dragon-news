@@ -4,23 +4,28 @@ import { FaFacebookF } from "react-icons/fa";
 import zone1 from "../assets/qZone1.png";
 import zone2 from "../assets/qZone2.png";
 import zone3 from "../assets/qZone3.png";
+import { useContext } from "react";
+import { AuthContext } from "./AuthProvider";
 
 const Aside = () => {
+  const { user } = useContext(AuthContext);
   return (
     <div>
-      <div className="mb-8">
-        <h2 className="text-xl font-semibold text-dark-2 mb-5">Login With</h2>
-        <div>
-          <button className="btn py-2 w-full text-dark-3 font-medium btn-outline capitalize mb-3">
-            <FcGoogle className="inline text-lg"></FcGoogle> Continue with
-            Google
-          </button>
-          <button className="btn py-2 w-full text-dark-3 font-medium btn-outline capitalize">
-            <BsGithub className="inline text-lg text-dark-2"></BsGithub>{" "}
-            Continue with Github
-          </button>
+      {!user && (
+        <div className="mb-8">
+          <h2 className="text-xl font-semibold text-dark-2 mb-5">Login With</h2>
+          <div>
+            <button className="btn py-2 w-full text-dark-3 font-medium btn-outline capitalize mb-3">
+              <FcGoogle className="inline text-lg"></FcGoogle> Continue with
+              Google
+            </button>
+            <button className="btn py-2 w-full text-dark-3 font-medium btn-outline capitalize">
+              <BsGithub className="inline text-lg text-dark-2"></BsGithub>{" "}
+              Continue with Github
+            </button>
+          </div>
         </div>
-      </div>
+      )}
       <div className="mb-8">
         <h2 className="text-xl font-semibold text-dark-2 mb-5">Find Us On</h2>
         <div className="border border-gray-200 rounded-md">
